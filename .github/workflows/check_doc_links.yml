@@ -19,6 +19,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: ls
+        run: | 
+          ls .
       - name: Calculate not indexed folders
         run: comm -3 <(find . -mindepth 1 -maxdepth 1 -type d -printf '%P\n' | grep -v 'docs\|\.' | sort) <(find docs -mindepth 1 -maxdepth 1 -type l -printf '%P\n' | sort) > not_indexed_folders
       - name: Check if not indexed folders list is empty
