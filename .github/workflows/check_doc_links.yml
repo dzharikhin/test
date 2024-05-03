@@ -29,6 +29,6 @@ jobs:
       - name: Check if not indexed folders list is empty
         run: |
           if [ -s not_indexed_folders ]; then
-              echo "::error::Please add symlinks in docs to next folders - $(cat not_indexed_folders)"
+              echo "::error::Please add symlinks in docs to next folders:\n$(cat not_indexed_folders)"
               exit 1
           fi
